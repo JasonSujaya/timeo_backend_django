@@ -3,7 +3,10 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.utils import timezone
+import datetime
 from django.conf import settings
+from phone_field import PhoneField
+
 
 # Create user model
 
@@ -37,9 +40,12 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    gender = models.CharField(max_length=255)
+    date_of_birth = models.DateField(default=timezone.now)
+    phone = PhoneField(blank=True, help_text='Contact phone number')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=timezone.now)
+    date_joined = models.DateTimeField(default=datetime.date.today)
 
     objects = MyUserManager()
 
@@ -58,3 +64,6 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of user"""
         return self.email
+
+
+# class UserAddress()

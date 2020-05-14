@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'phone_field',
     'profiles_api',
 ]
 
@@ -76,8 +79,12 @@ WSGI_APPLICATION = 'Timeo_Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddmoknujqg2dv6',
+        'USER': 'rinxlgoltzzsxa',
+        'PASSWORD': '30a2d0aabc573e01f04a1129c01e5d2e167a866f7aaa787edeefd0c2bd6f5684',
+        'HOST': 'ec2-52-202-22-140.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
