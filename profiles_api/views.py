@@ -21,9 +21,9 @@ class UserProfilesView(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
-    """Handles Authentication"""
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (permissions.UpdateOwnProfile,)
+    # """Handles Authentication"""
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (permissions.UpdateOwnProfile,)
 
 
 class UserLoginApiView(ObtainAuthToken):

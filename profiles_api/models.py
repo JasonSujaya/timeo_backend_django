@@ -14,10 +14,10 @@ from phone_field import PhoneField
 class MyUserManager(BaseUserManager):
     """Manager for user profiles"""
 
-    def create_user(self, email, first_name, last_name, password=None):
+    def create_user(self, email, first_name, last_name, gender, password=None):
         email = self.normalize_email(email)
         user = self.model(email=email, first_name=first_name,
-                          last_name=last_name)
+                          last_name=last_name, gender=gender)
 
         user.set_password(password)
         user.save(using=self._db)
