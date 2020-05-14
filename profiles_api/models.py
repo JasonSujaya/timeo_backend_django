@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 import datetime
+
 from django.conf import settings
 from phone_field import PhoneField
 
@@ -44,7 +45,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     phone = PhoneField(blank=True, help_text='Contact phone number')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=datetime.date.today)
+    date_joined = models.DateTimeField(default=datetime.datetime.now())
 
     objects = MyUserManager()
 
