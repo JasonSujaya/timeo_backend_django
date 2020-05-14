@@ -66,4 +66,11 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-# class UserAddress()
+class Address(models.Model):
+    user_profile = models.OneToOneField(
+        UserProfile, on_delete=models.CASCADE)
+    street = models.CharField(max_length=255)
+
+    def __str__(self):
+        """Return string representation of address"""
+        return self.street

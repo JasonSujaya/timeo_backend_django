@@ -10,6 +10,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
                   "gender", "date_of_birth", "phone", "email")
 
 
+class AddressSerializer(serializers.ModelSerializer):
+    """Serializes Address for our users"""
+    user = UserProfileSerializer(required=True)
+
+    class Meta:
+        model = UserProfile
+        fields = '__all__'
+
+
 class HelloSerializer(serializers.Serializer):
     """Serializes a name file for testing our api"""
     name = serializers.CharField(max_length=10)
