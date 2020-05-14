@@ -9,10 +9,26 @@ from .serializers import UserProfileSerializer, AddressSerializer
 from .models import UserProfile, Address
 
 
+from rest_framework.authentication import TokenAuthentication
+from profiles_api import permissions
+
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
+
+
 class UserProfilesView(viewsets.ModelViewSet):
-    """Handle creating and fetching profile"""
+    """Handles creating and fetching profile"""
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+
+    """Handles Authentication"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.UpdateOwnProfile,)
+
+
+class UserLoginApiView(ObtainAuthToken):
+    """Handle creating user authentication tokens"""
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
 class AddressViewSet(viewsets.ModelViewSet):
