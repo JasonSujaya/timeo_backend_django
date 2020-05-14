@@ -6,7 +6,7 @@ from rest_framework import viewsets
 
 
 # Import things
-from .serializers import UserProfileSerializer, HelloSerializer
+from .serializers import UserProfileSerializer
 from .models import UserProfile
 
 
