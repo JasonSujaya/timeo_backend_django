@@ -10,21 +10,11 @@ from .models import UserProfile, Address
 
 
 class UserProfilesView(viewsets.ModelViewSet):
+    """Handle creating and fetching profile"""
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
 
-class AddressListGeneric(generics.ListAPIView):
+class AddressViewSet(viewsets.ModelViewSet):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
-
-
-class AddressRetrieveUpdateGeneric(generics.RetrieveUpdateAPIView):
-    queryset = Address.objects.all()
-    serializer_class = AddressSerializer
-
-# class AddressListView(APIView):
-#     def get(self, request):
-#         address = Address.objects.all()
-#         data = AddressSerializer(address, many=True).data
-#         return Response(data)

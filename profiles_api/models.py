@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-from django.utils import timezone
 import datetime
 from django.conf import settings
 from phone_field import PhoneField
@@ -41,7 +40,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
-    date_of_birth = models.DateField(default=timezone.now)
+    date_of_birth = models.DateField(default=datetime.date.today)
     phone = PhoneField(blank=True, help_text='Contact phone number')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

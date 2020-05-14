@@ -6,8 +6,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
     """Serializes UserProfile for our API"""
     class Meta:
         model = UserProfile
-        fields = ("first_name", "last_name",
-                  "gender", "date_of_birth", "phone", "email")
+        fields = ('id', 'email', 'first_name',
+                  'last_name', 'gender', 'password')
+        extra_kwargs = {
+            'password': {
+                'write_only': True,
+                'style': {'input_type': 'password'}
+            }
+        }
 
 
 class AddressSerializer(serializers.ModelSerializer):
