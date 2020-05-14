@@ -18,7 +18,3 @@ class AddressSerializer(serializers.ModelSerializer):
         model = UserProfile
         fields = '__all__'
 
-
-class HelloSerializer(serializers.Serializer):
-    """Serializes a name file for testing our api"""
-    name = serializers.CharField(max_length=10)
