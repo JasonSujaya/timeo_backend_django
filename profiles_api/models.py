@@ -72,6 +72,8 @@ class Address(models.Model):
         UserProfile, on_delete=models.CASCADE, primary_key=True)
 
     street = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     post_code = models.CharField(max_length=255)
 
     def __str__(self):
