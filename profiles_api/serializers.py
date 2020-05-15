@@ -42,3 +42,4 @@ class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = "__all__"
+        extra_kwargs = {'user_profile': {'read_only': True}}
