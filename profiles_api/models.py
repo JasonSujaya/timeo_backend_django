@@ -45,7 +45,10 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     date_of_birth = models.DateField(default=datetime.date.today)
     phone = PhoneField(blank=True, help_text='Contact phone number')
     is_active = models.BooleanField(default=True)
+    notification_newsletter = models.BooleanField(default=True)
+    notifictioon_post = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+
     date_joined = models.DateTimeField(default=datetime.datetime.now)
 
     objects = MyUserManager()
