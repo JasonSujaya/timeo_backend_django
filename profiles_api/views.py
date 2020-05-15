@@ -60,3 +60,9 @@ class AddressRetrieveUpdate(generics.RetrieveUpdateAPIView):
     def get_queryset(self):
         queryset = Address.objects.all()
         return queryset
+
+
+# class ProfileImage(viewsets.ModelViewSet):
+#     # WILL REMOVE THIS
+#     queryset = Address.objects.all()
+#     serializer_class = AddressSerializer

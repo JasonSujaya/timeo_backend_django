@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserProfile, Address
+from .models import UserProfile, Address, ProfileImage
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -41,5 +41,12 @@ class AddressSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Address
+        fields = "__all__"
+        extra_kwargs = {'user_profile': {'read_only': True}}
+
+
+class ProfileImage(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileImage
         fields = "__all__"
         extra_kwargs = {'user_profile': {'read_only': True}}
