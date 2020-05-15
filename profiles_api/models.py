@@ -7,6 +7,7 @@ import datetime
 from django.conf import settings
 from django.utils import timezone
 from phone_field import PhoneField
+from django.conf import settings
 
 
 # Create user model
@@ -72,7 +73,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
 class Address(models.Model):
     user_profile = models.OneToOneField(
-        UserProfile, on_delete=models.CASCADE, primary_key=True)
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     street = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     city = models.CharField(max_length=255)

@@ -3,9 +3,18 @@ djangorestframework==3.9.2
 django-cors-headers == 3.2.1
 django-filter >= 1.0.1
 coreapi >= 1.32.0
-Pygments >=2.4.0
+
+#Heroku Related
 gunicorn == 20.0.4
+Pygments >=2.4.0
 whitenoise == 5.0.1
-django-phone-field == 1.8.0
 psycopg2-binary == 2.8.5
+
+
+#Django Models
 Pillow >= 2.2.1
+django-phone-field == 1.8.0
+
+#Schema
+pyyaml ==5.3.1
+uritemplate == 3.0.1

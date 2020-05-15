@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'phone_field',
     'profiles_api',
+    'post_api',
 ]
 
 MIDDLEWARE = [

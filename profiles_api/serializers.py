@@ -2,12 +2,24 @@ from rest_framework import serializers
 from .models import UserProfile, Address, ProfileImage
 
 
+class AddressSerializer(serializers.ModelSerializer):
+    """Serializes Address for our users"""
+    # user = UserProfileSerializer(required=False)
+
+    class Meta:
+        model = Address
+        fields = "__all__"
+        extra_kwargs = {'user_profile': {'read_only': True}}
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     """Serializes UserProfile for our API"""
+    address = AddressSerializer(required=False)
+
     class Meta:
         model = UserProfile
         fields = ('id', 'email', 'first_name',
-                  'last_name', 'gender', 'password')
+                  'last_name', 'gender', 'password', 'address')
         extra_kwargs = {
             'password': {
                 'write_only': True,
@@ -33,16 +45,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
             instance.set_password(password)
 
         return super().update(instance, validated_data)
-
-
-class AddressSerializer(serializers.ModelSerializer):
-    """Serializes Address for our users"""
-    # user = UserProfileSerializer(required=False)
-
-    class Meta:
-        model = Address
-        fields = "__all__"
-        extra_kwargs = {'user_profile': {'read_only': True}}
 
 
 class ProfileImage(serializers.ModelSerializer):
