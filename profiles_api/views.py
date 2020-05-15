@@ -21,9 +21,9 @@ class UserProfilesView(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
-    # """Handles Authentication"""
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (permissions.UpdateOwnProfile,)
+    """Handles Authentication"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.UpdateOwnProfile,)
 
 
 class UserLoginApiView(ObtainAuthToken):
@@ -34,3 +34,14 @@ class UserLoginApiView(ObtainAuthToken):
 class AddressViewSet(viewsets.ModelViewSet):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
+
+
+class AddressRetrieveUpdate(generics.RetrieveUpdateAPIView):
+    def get_queryset(self):
+        queryset = Address.objects.all()
+        return queryset
+    serializer_class = AddressSerializer
+
+    """Handles Authentication"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.CreateUpdateAddress,)

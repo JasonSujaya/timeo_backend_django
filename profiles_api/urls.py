@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import UserProfilesView, AddressViewSet, UserLoginApiView
+from .views import UserProfilesView, AddressViewSet, UserLoginApiView, AddressRetrieveUpdate
 
 router = DefaultRouter()
 router.register('userprofile', UserProfilesView,
@@ -12,4 +12,5 @@ router.register('address', AddressViewSet,
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', UserLoginApiView.as_view()),
+    path('retrieve/<int:pk>/', AddressRetrieveUpdate.as_view()),
 ]
