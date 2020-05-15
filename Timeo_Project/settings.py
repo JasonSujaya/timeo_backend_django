@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'phone_field',
     'profiles_api',
     'post_api',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}

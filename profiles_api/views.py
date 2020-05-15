@@ -3,17 +3,18 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, viewsets, generics, mixins
 
+# Auth Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
-# Import things
-from .serializers import UserProfileSerializer, AddressSerializer
-from .models import UserProfile, Address
-
-
+# Authentication
 from rest_framework.authentication import TokenAuthentication
 from profiles_api import permissions
 
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.settings import api_settings
+
+# Import Apps & Serializers
+from .serializers import UserProfileSerializer, AddressSerializer
+from .models import UserProfile, Address
 
 
 class UserProfilesView(viewsets.ModelViewSet):

@@ -16,5 +16,9 @@ Pillow >= 2.2.1
 django-phone-field == 1.8.0
 
 #Schema
-pyyaml ==5.3.1
-uritemplate == 3.0.1
+# pyyaml ==5.3.1
+# uritemplate == 3.0.1
+django-extensions
+graphviz
+pyparsing
+pydot
