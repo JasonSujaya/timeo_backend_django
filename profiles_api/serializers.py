@@ -14,7 +14,7 @@ class AddressSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
     """Serializes UserProfile for our API"""
-    address = AddressSerializer(required=False, allow_null=True, many=True)
+    address = AddressSerializer(read_only=True)
 
     class Meta:
         model = UserProfile
